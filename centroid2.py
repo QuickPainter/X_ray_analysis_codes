@@ -148,7 +148,7 @@ if __name__ == '__main__':
     x = [(i - ra_21218)*3600 for i in x]
     y= [(i - dec_21218)*3600 for i in y]
 
-    ax.scatter(x,y,color='green',label='21218')
+    ax.scatter(x,y,color='green',label='21218',marker='square',s=150)
     print("21218 len:",len(x))
 
 
@@ -184,7 +184,7 @@ if __name__ == '__main__':
 
 
 
-    ax.scatter(x,y,color='red',label='23444')
+    ax.scatter(x,y,color='red',label='23444',s=150)
     xmean = np.mean(x)
     ymean = np.mean(y)
 
@@ -254,11 +254,11 @@ if __name__ == '__main__':
 
 
 
-    ax.set_xlabel(r'$\delta$ RA [arcsec]',size=40)
+    ax.set_xlabel(r'$\delta$ RA [arcsec]',fontsize=40)
     ax.set_ylabel(r'$\delta$ DEC [arcsec]',size=40)
     plt.axvline(x=0,ls='--',color='black',linewidth=3)
     plt.axhline(y=0,ls='--',color='black',linewidth=3)
-    plt.legend(fontsize=30)
+    plt.legend(fontsize=35)
     plt.tick_params(axis='both', which='both',direction='inout',length=15)
 
     plt.tick_params(which='minor', width=0.75, length=7)

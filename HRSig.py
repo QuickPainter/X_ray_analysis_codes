@@ -148,8 +148,9 @@ def main(obsid,position,downloaded,bin_size,eclipse_time,focus_time,algo,blockin
     
     
     # creating a binned lightcurve of a certain bin size as well as a bayesian binned lightcurve
-    bin_time = 1000
-    
+    bin_time = 200
+    print("binned time",bin_time)
+
     # # lets also make some soft and hard lightcurves
     # soft_lc = []
     # hard_lc = []
@@ -634,7 +635,11 @@ def main(obsid,position,downloaded,bin_size,eclipse_time,focus_time,algo,blockin
     
     textsize= 15
     ## AX2 --> Posterior Density Distributions for eclipse and flanks
-    ax2.plot(final_middle_x,final_middle_y,color='green',label="2.6ks Dip")
+    dip_size = 2.6
+    if obsid == '23443':
+        dip_size = 5.2 
+
+    ax2.plot(final_middle_x,final_middle_y,color='green',label=f"{dip_size}ks Dip")
     ax2.plot(final_left_x,final_left_y,color='orange',label="Left Flank")
     ax2.plot(final_right_x,final_right_y,color='red',label="Right Flank")
     # ax2.set_title(f'Posterior Probability Distribution of HR')
@@ -804,7 +809,7 @@ def main(obsid,position,downloaded,bin_size,eclipse_time,focus_time,algo,blockin
 
 
 
-    ax1.axvspan(edges[dip_value_index],edges[dip_value_index+1], alpha=0.2, color='green',label="2.6ks Dip")
+    ax1.axvspan(edges[dip_value_index],edges[dip_value_index+1], alpha=0.2, color='green',label=f"{dip_size}ks Dip")
     ax1.axvspan(edges[dip_value_index-1],edges[dip_value_index], alpha=0.2, color='orange',label="Left Flank")
     ax1.axvspan(edges[dip_value_index+1],edges[dip_value_index+2], alpha=0.2, color='red',label="Right Flank")
 
